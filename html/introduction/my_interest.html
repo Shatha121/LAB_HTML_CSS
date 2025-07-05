@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Main</title>
+        
+    </head>
+    <body>
+        <h1>Shatha Alsuwaid</h1>
+        <p><b>Future Front-End Developer</b> & <i>Problem Solver</i></p>
+        <img src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png" alt="My profile pic" width="100">
+
+        <h2>About Me</h2>
+        <p>I'm currently learning web development. I enjoy discovering how things work and building small projects to test what I learn </p>
+        <h2>Topic That Interest Me</h2>
+        <ul>
+            <li>Web Development</li>
+            <li>Psychology</li>
+            <li>Cybersecurity</li>
+            <li>UX/UI Design</li>
+
+        </ul>
+        
+        <h2>Websites I Visit Often</h2>
+        <ol>
+            <li><a href="https://www.w3schools.com/">w3schools</a></li>
+            <li><a href="https://www.freecodecamp.org/">freecodecamp</a></li>
+            <li><a href="https://www.youtube.com/">youtube</a></li>
+        </ol>
+
+        <h2>My Web Development Learning Progress</h2>
+        <ul id="learning-list">
+            <li><input type="checkbox" data-topic="HTML">HTML</li>
+            <li><input type="checkbox" data-topic="CSS">CSS</li>
+            <li><input type="checkbox" data-topic="JavaScript">JavaScript</li>
+            <li><input type="checkbox" data-topic="Flexbox">Flexbox</li>
+            <li><input type="checkbox" data-topic="Accessibility">Accessibility</li>
+        </ul>
+
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <h2>Contact Me</h2>
+        <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name"><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email"><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea rows="4" cols="40" id="message"></textarea><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            const checkboxes = document.querySelectorAll('#learning-list input[type="checkbox"]');
+            function updateProgress(){
+                let total = checkboxes.length;
+                let completed = 0;
+
+                for(let i = 0; i< checkboxes.length; i++){
+                    if(checkboxes[i].checked){
+                        completed++;
+                    }
+                }
+                let percent = Math.round((completed / total) * 100);
+                document.getElementById('progress-bar').style.width = percent + '%';
+            }
+            
+            for(let i = 0; i <checkboxes.length;i++){
+                checkboxes[i].addEventListener('change',updateProgress)
+            }
+            updateProgress();
+        </script>
+    </body>
+</html>
